@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.driver.ai/docs/personal-access-tokens
+docs: https://www.driver.ai/docs/mcp-setup
+summary:
+  types: [oauth2, http, apiKey]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+  notes: >-
+    Driver authenticates API and MCP requests three ways: OAuth 2.1 (browser
+    login, RFC 8414 authorization-server metadata published), Personal Access
+    Tokens (drvp_ prefix, authenticate as the user), and Machine API keys
+    (drvm_ prefix, machine-to-machine). Enterprise SSO uses SAML 2.0 with SCIM
+    provisioning.
+schemes:
+- name: oauth2
+  type: oauth2
+  flow: authorizationCode
+  pkce: S256
+  authorizationUrl: https://api.us1.driverai.com/mcp/authorize
+  tokenUrl: https://api.us1.driverai.com/mcp/token
+  revocationUrl: https://api.us1.driverai.com/mcp/revoke
+  registrationUrl: https://api.us1.driverai.com/mcp/register   # RFC 7591 dynamic client registration
+  scopes: [openid, profile, email]
+  source: https://api.us1.driverai.com/.well-known/oauth-authorization-server
+- name: personal_access_token
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  token_prefix: drvp_
+  description: >-
+    Personal access tokens authenticate as the user and inherit the user's
+    organization role and source access. Expire in 30/90/180/365 days.
+- name: machine_api_key
+  type: apiKey
+  in: header
+  header: Authorization
+  scheme: bearer
+  token_prefix: drvm_
+  description: >-
+    Machine identities for headless/M2M access. Bearer scheme; prefix routes to
+    API-key auth automatically (no OAuth flow). Role-based per-source grants
+    (Source Admin / Source Member), directly or via teams; no org-wide access.
+- name: sso_saml
+  type: saml2
+  description: >-
+    Enterprise SSO via SAML 2.0 (Okta, Microsoft Entra, Google Workspace, etc.),
+    with SCIM 2.0 automated user provisioning. Requires Org Admin to configure.
