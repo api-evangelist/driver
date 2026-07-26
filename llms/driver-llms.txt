@@ -1,0 +1,32 @@
+# Driver
+
+> Driver is an AI platform that compiles exhaustive, structured context for codebases so AI coding agents (and engineers) can understand architecture, dependencies, and history without manually assembling context. It analyzes repositories, generates and continuously updates symbol-complete technical documentation, and exposes it through a hosted Model Context Protocol (MCP) server and a REST API. Backed by GV and Techstars.
+
+## APIs
+
+- [Developer Docs](https://www.driver.ai/docs): Documentation portal for the Driver platform, MCP setup, guides, administration, and reference.
+- [MCP Tools Reference](https://www.driver.ai/docs/mcp-tools): The 15 MCP tools Driver exposes (gather_task_context, get_architecture_overview, get_code_map, get_source_file, get_related, register_content, and more).
+- [MCP Setup](https://www.driver.ai/docs/mcp-setup): Configure the Driver MCP server (https://api.us1.driverai.com/mcp/v1, HTTP transport) in Claude Code, Cursor, and VS Code + Copilot.
+
+## Authentication
+
+- [Personal Access Tokens](https://www.driver.ai/docs/personal-access-tokens): drvp_ prefixed bearer tokens that authenticate as the user.
+- [Machine Identities](https://www.driver.ai/docs/machine-identities): drvm_ prefixed machine-to-machine API keys with per-source role grants.
+- [OAuth authorization server metadata](https://api.us1.driverai.com/.well-known/oauth-authorization-server): OAuth 2.1 (PKCE S256, dynamic client registration, token revocation) for browser login.
+- [SSO & SCIM](https://www.driver.ai/docs/sso-scim): Enterprise SAML 2.0 SSO and SCIM 2.0 provisioning.
+
+## Docs
+
+- [Introduction to Driver](https://www.driver.ai/docs/introduction-to-driver): What Driver Docs and Driver Studio do.
+- [Quick Start](https://www.driver.ai/docs): Getting started with Driver.
+- [Changelog](https://www.driver.ai/changelog): Calendar-dated release notes.
+- [Trust Center](https://trust.driver.ai/): Security and compliance posture.
+- [Support](https://support.driver.ai/): Help center.
+
+## Company
+
+- [Pricing](https://www.driver.ai/pricing): Team / Organization / Enterprise tiers priced by source lines of code per year.
+- [Blog](https://www.driver.ai/blog): Company blog and use-case articles.
+- [Terms of Use](https://www.driver.ai/terms-of-use)
+- [Privacy Policy](https://www.driver.ai/privacy-policy)
+- [GitHub](https://github.com/driver-ai): Driver's GitHub organization.

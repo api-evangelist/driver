@@ -1,0 +1,60 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://www.driver.ai/docs/mcp-tools
+server:
+  name: driver-mcp
+  transport: http
+  url: https://api.us1.driverai.com/mcp/v1        # shared multi-tenant endpoint
+  single_tenant_pattern: https://api.<tenant>.driverai.com/mcp/v1
+  setup_docs: https://www.driver.ai/docs/mcp-setup
+  clients:
+  - Claude Code
+  - Cursor
+  - VS Code + GitHub Copilot
+auth:
+  # Browser-based OAuth 2.1 login (RFC 8414 metadata published) or bearer tokens.
+  methods:
+  - type: oauth2
+    flow: authorizationCode
+    pkce: S256
+    metadata: https://api.us1.driverai.com/.well-known/oauth-authorization-server
+  - type: personal_access_token
+    header: Authorization
+    scheme: Bearer
+    token_prefix: drvp_
+  - type: machine_api_key
+    header: Authorization
+    scheme: Bearer
+    token_prefix: drvm_
+tools:
+- name: gather_task_context
+  description: Runs a specialized context agent that reads architecture docs and synthesizes high-signal context tailored to a specific task.
+- name: get_codebase_names
+  description: Returns all codebases available in your Driver organization for use with other tools.
+- name: get_branches
+  description: Returns all branches for a codebase that have completed documentation.
+- name: get_architecture_overview
+  description: Provides a comprehensive architecture document covering system structure, key components, and design patterns.
+- name: get_llm_onboarding_guide
+  description: Delivers a guide optimized for AI agents covering navigation tips and coding conventions.
+- name: get_changelog
+  description: Returns a high-level development timeline organized by year and month.
+- name: get_detailed_changelog
+  description: Provides detailed commit-level information for a specific month.
+- name: get_code_map
+  description: Explores directory structure with pre-computed descriptions of file and directory purposes.
+- name: get_file_documentation
+  description: Returns symbol-level documentation for a specific file including functions and classes.
+- name: get_source_file
+  description: Returns actual source code with line numbers for implementation details.
+- name: get_related
+  description: Surfaces code dependencies via a type-aware symbol table across Python, JavaScript, TypeScript, Java, and Rust.
+- name: get_registered_content_list
+  description: Lists all registered content documents accessible to the user.
+- name: fetch_registered_content
+  description: Retrieves the full content of a registered document by name.
+- name: register_content
+  description: Registers new content documents, supporting both static and auto-updating types.
+- name: remove_registered_content
+  description: Permanently deletes a registered content document.

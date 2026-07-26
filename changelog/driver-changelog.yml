@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.driver.ai/changelog
+scheme: calendar-dated
+current_version: rolling (continuous deployment)
+entries:
+- date: '2026-07-16'
+  additions: true
+  breaking: false
+  highlights:
+  - New get_related MCP tool surfaces code dependencies via a type-aware symbol table across Python, JavaScript, TypeScript, Java, and Rust.
+- date: '2026-06-25'
+  additions: true
+  breaking: false
+  highlights:
+  - Branch visibility in My Sources; per-codebase branch controls; Gerrit support added.
+- date: '2026-05-21'
+  additions: true
+  breaking: false
+  highlights:
+  - Personal Access Tokens (PATs); self-service SSO & SCIM configuration; Claude Code plugin v1.1.
+- date: '2026-05-01'
+  additions: true
+  breaking: false
+  highlights:
+  - Content Registration feature; MCP server updates for multi-branch support.
+- date: '2026-03-13'
+  additions: true
+  breaking: false
+  highlights:
+  - Usage tracking dashboard for administrators.
+- date: '2026-03-06'
+  additions: true
+  breaking: false
+  highlights:
+  - Labs feature introduced; Ticket Analysis Integration launched.
+- date: '2026-02-19'
+  additions: true
+  breaking: false
+  highlights:
+  - Machine access authentication; new MCP tools; SCIM 2.0 provisioning.

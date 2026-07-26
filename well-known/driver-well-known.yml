@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: live /.well-known probes of Driver website + API/MCP hosts
+hosts:
+- host: https://api.us1.driverai.com
+  documents:
+  - path: /.well-known/oauth-authorization-server   # RFC 8414 authorization server metadata (MCP OAuth 2.1)
+    status: 200
+    file: driver-oauth-authorization-server.json
+  - path: /.well-known/openid-configuration           # OIDC discovery
+    status: 404
+  - path: /.well-known/security.txt                    # RFC 9116
+    status: 404
+- host: https://www.driver.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

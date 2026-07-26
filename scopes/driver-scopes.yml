@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://api.us1.driverai.com/.well-known/oauth-authorization-server
+docs: https://www.driver.ai/docs/mcp-setup
+schemes:
+- name: oauth2
+  source: https://api.us1.driverai.com/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.us1.driverai.com/mcp/authorize
+    tokenUrl: https://api.us1.driverai.com/mcp/token
+    pkce: S256
+scopes:
+- scope: openid
+  description: OpenID Connect authentication of the acting user.
+  flows: [authorizationCode]
+- scope: profile
+  description: Access to the user's basic profile.
+  flows: [authorizationCode]
+- scope: email
+  description: Access to the user's email address.
+  flows: [authorizationCode]
+notes: >-
+  The MCP OAuth 2.1 authorization server advertises only identity scopes
+  (openid/profile/email). Resource authorization is enforced by Driver's
+  role-based access model (Source Admin / Source Member, direct or team-
+  inherited), not by OAuth scopes. Personal access tokens inherit the user's
+  role; machine keys are granted per source.

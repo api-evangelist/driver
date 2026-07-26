@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: https://api.us1.driverai.com/.well-known/oauth-authorization-server
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 authorization-server metadata published; authorization_code + refresh_token grants.
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with full metadata.
+- id: oauth-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256].
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint advertised (https://api.us1.driverai.com/mcp/register).
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: revocation_endpoint advertised.
+- id: model-context-protocol
+  conforms: true
+  evidence: Published hosted MCP server at api.us1.driverai.com/mcp/v1 with 15 tools.
+- id: saml-2.0
+  conforms: true
+  evidence: Enterprise SSO documented as SAML 2.0.
+- id: scim-2.0
+  conforms: true
+  evidence: SCIM 2.0 provisioning documented (changelog 2026-02-19; SSO & SCIM docs).
+- id: oidc-discovery
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 (identity scopes exposed via OAuth metadata only).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public OpenAPI or error-envelope documentation found.

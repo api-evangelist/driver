@@ -1,9 +1,30 @@
 aid: driver
 name: Driver
-description: 'Driver is a company surfaced as a portfolio company of gv, techstars and added to the API
-  Evangelist network as a stub for enrichment. Sector: ai. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Driver is an AI platform that compiles exhaustive, structured context for
+  codebases so AI coding agents and engineers can understand architecture,
+  dependencies, and history without manually assembling context. It analyzes
+  repositories, generates symbol-complete technical documentation, and keeps it
+  synchronized as code changes, exposing the result through a hosted Model
+  Context Protocol (MCP) server (15 tools) and a REST API. Driver integrates with
+  Claude Code, Cursor, and VS Code + Copilot, supports multi-repository and
+  multi-branch codebases, and offers enterprise SSO (SAML 2.0), SCIM 2.0
+  provisioning, machine identities, and single-tenant/FedRAMP deployment options.
+  Backed by GV and Techstars.
 url: https://raw.githubusercontent.com/api-evangelist/driver/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.driver.ai/og-image.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -13,11 +34,34 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-- Ai
-apis: []
+- AI
+- Developer Tools
+- Code Documentation
+- MCP
+- Codebase Intelligence
+- Agents
+- Developer Experience
+apis:
+- name: Driver Platform API & MCP Server
+  description: >-
+    Hosted Model Context Protocol server (15 tools) plus REST API for compiling
+    and querying codebase context: architecture overviews, code maps, file and
+    symbol documentation, source retrieval, changelogs, dependency graphs, and
+    registered content.
+  humanURL: https://www.driver.ai/docs
+  baseURL: https://api.us1.driverai.com
+  properties:
+  - type: MCPServer
+    url: mcp/driver-mcp.yml
+  - type: Authentication
+    url: authentication/driver-authentication.yml
+  - type: OAuthScopes
+    url: scopes/driver-scopes.yml
+  - type: Conventions
+    url: conventions/driver-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +70,50 @@ maintainers:
 common:
 - type: Website
   url: https://www.driver.ai
+- type: DeveloperPortal
+  url: https://www.driver.ai/docs
+- type: Documentation
+  url: https://www.driver.ai/docs
+- type: APIReference
+  url: https://www.driver.ai/docs/mcp-tools
+- type: GettingStarted
+  url: https://www.driver.ai/docs/introduction-to-driver
+- type: Support
+  url: https://support.driver.ai/
+- type: Blog
+  url: https://www.driver.ai/blog
+- type: GitHubOrganization
+  url: https://github.com/driver-ai
+- type: Pricing
+  url: https://www.driver.ai/pricing
+- type: TermsOfService
+  url: https://www.driver.ai/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.driver.ai/privacy-policy
+- type: TrustCenter
+  url: https://trust.driver.ai/
+- type: MCPServer
+  url: mcp/driver-mcp.yml
+- type: Authentication
+  url: authentication/driver-authentication.yml
+- type: OAuthScopes
+  url: scopes/driver-scopes.yml
+- type: Conventions
+  url: conventions/driver-conventions.yml
+- type: ChangeLog
+  url: changelog/driver-changelog.yml
+- type: Lifecycle
+  url: lifecycle/driver-lifecycle.yml
+- type: Conformance
+  url: conformance/driver-conformance.yml
+- type: WellKnown
+  url: well-known/driver-well-known.yml
+- type: DomainSecurity
+  url: security/driver-domain-security.yml
+- type: LLMsTxt
+  url: llms/driver-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

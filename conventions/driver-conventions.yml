@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.driver.ai/docs
+authentication:
+  style: bearer-token
+  header: Authorization
+  schemes: [oauth2-authorization-code-pkce, personal-access-token, machine-api-key]
+  detail: authentication/driver-authentication.yml
+api_surface:
+  rest_base: https://api.us1.driverai.com
+  mcp_endpoint: https://api.us1.driverai.com/mcp/v1
+  transport: http
+  single_tenant_pattern: https://api.<tenant>.driverai.com
+versioning:
+  scheme: calendar-dated releases (continuous deployment; no semantic version tags)
+  path_marker: /mcp/v1
+  changelog: https://www.driver.ai/changelog
+  detail: changelog/driver-changelog.yml
+identity_and_provisioning:
+  sso: SAML 2.0
+  provisioning: SCIM 2.0
+  ip_allowlist: true
+idempotency:
+  supported: false
+  notes: No idempotency-key header or contract is documented in Driver's public docs.
+pagination:
+  documented: false
+rate_limiting:
+  documented: false
+error_envelope:
+  documented: false
+notes: >-
+  Driver exposes its platform primarily as a hosted MCP server plus a REST API
+  for server-side access. Access is scoped by a role-based model over "sources"
+  (codebases), not by OAuth scopes. Enterprise controls include SSO (SAML 2.0),
+  SCIM 2.0 provisioning, and an IP allowlist.

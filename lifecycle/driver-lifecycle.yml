@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.driver.ai/changelog
+versioning:
+  scheme: calendar-dated (continuous deployment; no semantic version tags)
+  path_marker: /mcp/v1
+  changelog: https://www.driver.ai/changelog
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No public deprecation policy or RFC 8594 Sunset/Deprecation header support documented.
+sla:
+  documented: true
+  detail: >-
+    SLAs are offered on the Organization and Enterprise pricing tiers
+    (with priority support and a dedicated success manager). No public
+    uptime-target number is published.
+  source: https://www.driver.ai/pricing
+status_page: null
+trust_center: https://trust.driver.ai/
