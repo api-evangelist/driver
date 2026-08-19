@@ -5,7 +5,7 @@ source: https://www.driver.ai/docs/mcp-tools
 server:
   name: driver-mcp
   transport: http
-  url: https://api.us1.driverai.com/mcp/v1        # shared multi-tenant endpoint
+  url: https://api.us1.driverai.com/mcp/v1
   single_tenant_pattern: https://api.<tenant>.driverai.com/mcp/v1
   setup_docs: https://www.driver.ai/docs/mcp-setup
   clients:
@@ -13,7 +13,6 @@ server:
   - Cursor
   - VS Code + GitHub Copilot
 auth:
-  # Browser-based OAuth 2.1 login (RFC 8414 metadata published) or bearer tokens.
   methods:
   - type: oauth2
     flow: authorizationCode
@@ -29,13 +28,15 @@ auth:
     token_prefix: drvm_
 tools:
 - name: gather_task_context
-  description: Runs a specialized context agent that reads architecture docs and synthesizes high-signal context tailored to a specific task.
+  description: Runs a specialized context agent that reads architecture docs and synthesizes high-signal
+    context tailored to a specific task.
 - name: get_codebase_names
   description: Returns all codebases available in your Driver organization for use with other tools.
 - name: get_branches
   description: Returns all branches for a codebase that have completed documentation.
 - name: get_architecture_overview
-  description: Provides a comprehensive architecture document covering system structure, key components, and design patterns.
+  description: Provides a comprehensive architecture document covering system structure, key components,
+    and design patterns.
 - name: get_llm_onboarding_guide
   description: Delivers a guide optimized for AI agents covering navigation tips and coding conventions.
 - name: get_changelog
@@ -49,7 +50,8 @@ tools:
 - name: get_source_file
   description: Returns actual source code with line numbers for implementation details.
 - name: get_related
-  description: Surfaces code dependencies via a type-aware symbol table across Python, JavaScript, TypeScript, Java, and Rust.
+  description: Surfaces code dependencies via a type-aware symbol table across Python, JavaScript, TypeScript,
+    Java, and Rust.
 - name: get_registered_content_list
   description: Lists all registered content documents accessible to the user.
 - name: fetch_registered_content
@@ -58,3 +60,10 @@ tools:
   description: Registers new content documents, supporting both static and auto-updating types.
 - name: remove_registered_content
   description: Permanently deletes a registered content document.
+deployment:
+  mode: remote
+  endpoint: https://api.us1.driverai.com/mcp/v1
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
