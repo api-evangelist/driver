@@ -1,16 +1,21 @@
-generated: '2026-07-18'
+generated: '2026-09-19'
 method: searched
 source: live /.well-known probes of Driver website + API/MCP hosts
 hosts:
 - host: https://api.us1.driverai.com
   documents:
-  - path: /.well-known/oauth-authorization-server   # RFC 8414 authorization server metadata (MCP OAuth 2.1)
+  - path: /.well-known/oauth-authorization-server
     status: 200
     file: driver-oauth-authorization-server.json
-  - path: /.well-known/openid-configuration           # OIDC discovery
+  - path: /.well-known/openid-configuration
     status: 404
-  - path: /.well-known/security.txt                    # RFC 9116
+  - path: /.well-known/security.txt
     status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: driver-api-oauth-protected-resource.json
+    bytes: 197
+  path_echo_control: passed
 - host: https://www.driver.ai
   documents:
   - path: /.well-known/security.txt
@@ -23,3 +28,16 @@ hosts:
     status: 404
   - path: /.well-known/ai-plugin.json
     status: 404
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://api.us1.driverai.com
+    path: /.well-known/oauth-protected-resource
+    file: driver-api-oauth-protected-resource.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
