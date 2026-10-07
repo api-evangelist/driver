@@ -1,0 +1,43 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.driver.ai/pricing
+sources:
+- https://www.driver.ai/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: negotiated
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-07'
+  evidence: Single-tenant + Additional fee Dedicated VPC with isolated database and storage.
+published: false
+note: No numeric prices; all tiers 'Contact Sales'. Platform fee scales with SLOC analyzed per year; LLM
+  tokens billed at market rate separately. Single-tenant and regulated deployments carry an unspecified
+  additional fee.
+plan_count: 3
+plans:
+- name: Team
+  price_text: Contact Sales
+  period: none
+  unit: SLOC analyzed / year
+  included_quota: 5M–25M SLOC; Full Driver platform, All VCS integrations, MCP + API access, AI SDLC plugin
+    (Claude Code, Cursor), Standard support
+- name: Organization
+  price_text: Contact Sales
+  period: none
+  unit: SLOC analyzed / year
+  included_quota: 25M–50M SLOC; Everything in Team, plus SSO/SCIM, Priority support, Onboarding assistance,
+    SLA guarantees, Dedicated CSM
+- name: Enterprise
+  price_text: Contact Sales
+  period: none
+  unit: SLOC analyzed / year
+  included_quota: 50M+ SLOC; Everything in Organization, plus single-tenant or regulated deployment, FedRAMP/GovCloud,
+    custom data residency, custom contract terms
+rate_limit_statements:
+- Unlimited MCP tool calls.
